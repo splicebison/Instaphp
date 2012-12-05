@@ -20,11 +20,37 @@ require 'vendor/autoload.php';
 
 use Instaphp\Instaphp;
 
-//-- Get an instance of the Instaphp object
-$api = Instaphp::Instance();
+// Config
+$config = array(
+	'client_id' => 'YOUR_CLIENT_ID'
+);
 
-//-- Get the response for Popular media
+// Get an instance of the Instaphp object
+$api = Instaphp::Instance(null, $config);
+
+// Get the response for Popular media
 $response = $api->Media->Popular();
+```
+
+Alternatively, you could provide an access token:
+
+```php
+$api = Instaphp::Instance('YOUR_ACCESS_TOKEN');
+```
+
+You can override the default configurations like above. Here are the defaults for quick reference:
+
+```php
+public $configDefaults = array(
+  'version'=> 'v1',
+  'endpoint'=> 'https://api.instagram.com',
+  'endpoint_timeout'=> '10',
+  'client_id'=> null,
+  'client_secret'=> null,
+  'oauth_path'=> '/oauth/authorize/?client_id={client_id}&amp;response_type=code&amp;redirect_uri={redirect_uri}',
+  'oauth_token_path'=> 'oauth/access_token',
+  'redirect_uri'=> '',
+);
 ```
 
 The rest of the documentation follows the original Instaphp docs below
