@@ -1,6 +1,36 @@
-Converted to use composer
+> **This is a Composer compliant version of Instaphp which was coded by sesser (Randy) and can be found [here](https://github.com/sesser/Instaphp).**
 
-## Instaphp v1.0
+### Getting Started
+
+Add to composer.json and install/update:
+
+```json
+{
+    "require": {
+        "fishmarket/instaphp": "*"
+    }
+}
+```
+
+index.php:
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use Instaphp\Instaphp;
+
+//-- Get an instance of the Instaphp object
+$api = Instaphp::Instance();
+
+//-- Get the response for Popular media
+$response = $api->Media->Popular();
+```
+
+The rest of the documentation follows the original Instaphp docs below
+
+
+## Instaphp v1.0 (original readme below)
 
 This software is licensed under The MIT License. Please see the file named 'LICENSE' for futher details.
 
